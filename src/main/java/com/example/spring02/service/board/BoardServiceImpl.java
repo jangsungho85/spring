@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 import com.example.spring02.model.board.dao.BoardDAO;
 import com.example.spring02.model.board.dto.BoardDTO;
 
-@Service
+@Service //service bean
 public class BoardServiceImpl implements BoardService {
-	
+
 	@Inject
 	BoardDAO boardDao;
 
@@ -28,21 +28,15 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public void addAttach(String fullName) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void updateAttach(String fullName, int bno) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public void create(BoardDTO dto) throws Exception {
-		// TODO Auto-generated method stub
+		//board 테이블에 레코드 추가
+		boardDao.create(dto); 
+	}
 
+	@Override
+	public BoardDTO read(int bno) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
@@ -59,12 +53,11 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<BoardDTO> listAll() throws Exception {
-		
 		return boardDao.listAll();
 	}
 
 	@Override
-	public void increateViewcnt(int bno) throws Exception {
+	public void increaseViewcnt() throws Exception {
 		// TODO Auto-generated method stub
 
 	}
@@ -73,12 +66,6 @@ public class BoardServiceImpl implements BoardService {
 	public int countArticle() throws Exception {
 		// TODO Auto-generated method stub
 		return 0;
-	}
-
-	@Override
-	public BoardDTO read(int bno) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

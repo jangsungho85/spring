@@ -9,13 +9,11 @@ import org.springframework.stereotype.Repository;
 
 import com.example.spring02.model.board.dto.BoardDTO;
 
-@Repository
+@Repository //dao bean
 public class BoardDAOImpl implements BoardDAO {
 	
 	@Inject //의존관계 주입(Dependency Injection, DI)
-	
 	SqlSession sqlSession;
-	
 
 	@Override
 	public void deleteFile(String fullName) {
@@ -43,8 +41,7 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public void create(BoardDTO dto) throws Exception {
-		// TODO Auto-generated method stub
-
+		sqlSession.insert("board.insert", dto);
 	}
 
 	@Override
