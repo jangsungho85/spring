@@ -26,7 +26,8 @@ public class GoogleChartController {
 	public ModelAndView chart2() {
 		return new ModelAndView("chart/chart02");
 	}
-	
+
+	//view(jsp)로 넘어가지 않고 호출한 곳에 JSONObject를 리턴함
 	@RequestMapping("cart_money_list.do")
 	public JSONObject cart_money_list() {
 		return googleChartService.getChartData();

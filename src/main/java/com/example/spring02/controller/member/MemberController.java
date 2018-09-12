@@ -41,13 +41,16 @@ public class MemberController {
 		}
 		return mav;
 	}//login_check()
+	
 	@RequestMapping("logout.do")
-	public ModelAndView logout(HttpSession session, ModelAndView mav) {
+	public ModelAndView logout(
+			HttpSession session, ModelAndView mav) {
 		//세션 초기화
 		memberService.logout(session);
 		// login.jsp로 이동
 		mav.setViewName("member/login");
 		mav.addObject("message", "logout");
-		return mav;	
-	}
+		return mav;
+	}//logout()
+
 }

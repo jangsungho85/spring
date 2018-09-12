@@ -3,13 +3,13 @@ package com.example.spring02.model.member.dto;
 import java.util.Date;
 
 public class MemberDTO {
-	
 	private String userid;
 	private String passwd;
 	private String name;
 	private String email;
-	private Date join_date;
+	private Date join_date; //java.util.Date
 	
+	//getter,setter, toString(), 기본생성자만
 	public String getUserid() {
 		return userid;
 	}
@@ -46,12 +46,6 @@ public class MemberDTO {
 				+ ", join_date=" + join_date + "]";
 	}
 	public MemberDTO() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
-	
-	
-	
-	
 
 }

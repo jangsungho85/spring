@@ -12,24 +12,27 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.spring02.model.message.dto.MessageDTO;
 import com.example.spring02.service.message.MessageService;
 
-@RestController
+@RestController //스프링4.0부터 사용가능 (@Controller + @ResponseBody)
+@RequestMapping("messages/*") //공통적인 url mapping
 public class MessageController {
-	
 	@Inject
 	MessageService messageService;
-	@RequestMapping (value="/", method=RequestMethod.POST)
+	@RequestMapping(value="/", method=RequestMethod.POST)
 	
 	public ResponseEntity<String> addMessage(@RequestBody MessageDTO dto){
-		ResponseEntity<String> entity = null;
-		
+		//@RequestBody : 클라이언트=>서버(json데이터가 입력될 때) 리턴값이 json
+		//@ResponseBody : 서버=>클라이언트(json), 입력값이 json
+		ResponseEntity<String> entity=null;
+		//ResponseEntity => 리턴값(json+에러메시지)
 		try {
 			messageService.addMessage(dto);
-			//ResponseEntity => 에러메세지 + 에러코드
-			entity=new ResponseEntity<>("success", HttpStatus.OK);
+			//ResponseEntity => 에러메시지+에러코드
+			entity=new ResponseEntity<>("success",HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
-			entity = new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST); //400 에러 : 상호간 변수등이 안맞을 때
-		} 
+			entity=new ResponseEntity<>(e.getMessage()
+					,HttpStatus.BAD_REQUEST);//400 에러 : 상호간 변수등이 안맞을 때
+		}
 		return entity;
 	}
 

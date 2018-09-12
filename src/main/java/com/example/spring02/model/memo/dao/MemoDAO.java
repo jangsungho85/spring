@@ -13,17 +13,20 @@ import com.example.spring02.model.memo.dto.MemoDTO;
 public interface MemoDAO {
 	
 	@Select("select * from memo order by idx desc")
-	public List<MemoDTO> list();
+	public List<MemoDTO> list();//import java.util.List;
 	
-	@Insert("insert into memo (idx,writer,memo) values" 
-	        + "((select nvl(max(idx)+1,1) from memo)"
+	//mybatis query에 전달할 변수는 @Param으로 처리
+	@Insert("insert into memo (idx,writer,memo) values "
+			+ "( (select nvl(max(idx)+1,1) from memo)"
 			+ ", #{writer}, #{memo} )")
-	public void insert(@Param("writer") String writer, @Param("memo") String memo);
+	public void insert(@Param("writer") String writer, 
+			@Param("memo") String memo);
 	
-	@Select("select * from memo where idx = #{idx}")
+	@Select("select * from memo where idx=#{idx}")
 	public MemoDTO memo_view(@Param("idx") int idx);
 	
-	@Update("update memo set writer=#{writer}, memo=#{memo} where idx=#{idx}")
+	@Update("update memo set writer=#{writer}, memo=#{memo}"
+			+ " where idx=#{idx} ")
 	public void update(MemoDTO dto);
 	
 	@Delete("delete from memo where idx=#{idx}")

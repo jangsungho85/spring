@@ -70,7 +70,7 @@ public class PdfServiceImpl implements PdfService {
 			table.addCell(cell4);
 			
 			//장바구니 목록 리턴, listCart("사용자id")
-			List<CartDTO> items=cartService.listCart("kim");
+			List<CartDTO> items=cartService.listCart("park");
 			for(int i=0; i<items.size(); i++) {
 				CartDTO dto=items.get(i);//i번째 레코드를 dto에 저장
 				PdfPCell cellProductName=new PdfPCell(

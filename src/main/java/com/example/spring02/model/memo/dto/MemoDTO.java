@@ -3,16 +3,12 @@ package com.example.spring02.model.memo.dto;
 import java.util.Date;
 
 public class MemoDTO {
-	
 	private int idx;
 	private String writer;
 	private String memo;
-	private Date post_date;
+	private Date post_date; //java.util.Date
 	
-	@Override
-	public String toString() {
-		return "MemoDTO [idx=" + idx + ", writer=" + writer + ", memo=" + memo + ", post_date=" + post_date + "]";
-	}
+	//getter,setter,toString,생성자
 	public int getIdx() {
 		return idx;
 	}
@@ -37,16 +33,15 @@ public class MemoDTO {
 	public void setPost_date(Date post_date) {
 		this.post_date = post_date;
 	}
+	@Override
+	public String toString() {
+		return "MemoDTO [idx=" + idx + ", writer=" + writer + ", memo=" + memo + ", post_date=" + post_date + "]";
+	}
 	public MemoDTO() {
-	
 	}
 	public MemoDTO(String writer, String memo) {
 		this.writer = writer;
 		this.memo = memo;
 	}
-	
-	
-	
-	
 
 }

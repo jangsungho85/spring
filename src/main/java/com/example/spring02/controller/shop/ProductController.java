@@ -58,7 +58,7 @@ public class ProductController {
 				//디렉토리구분자 : 윈도우즈 \, 유닉스(리눅스) /
 				//" "안에다 \를 쓰면 특수문자로 알아듣기 때문에 \를 하나 더 써야함.
 				//개발 디렉토리
-                 String path="D:\\work\\spring02\\src\\main\\webapp\\WEB-INF\\views\\images\\";
+String path="D:\\work\\spring02\\src\\main\\webapp\\WEB-INF\\views\\images";
 
 				//배포디렉토리 - 서버 clean 
 //String path="D:\\work\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\spring02\\WEB-INF\\views\\images";
@@ -97,7 +97,7 @@ public class ProductController {
 			//첨부 파일의 이름
 			filename=dto.getFile1().getOriginalFilename();
 			try {
-                String path="D:\\work\\spring02\\src\\main\\webapp\\WEB-INF\\views\\images\\";
+String path="D:\\work\\spring02\\src\\main\\webapp\\WEB-INF\\views\\images";
 				//디렉토리가 존재하지 않으면 생성
 				new File(path).mkdir();
 				//임시 디렉토리에 저장된 첨부파일을 이동
@@ -115,8 +115,8 @@ public class ProductController {
 		//상품정보 수정
 		productService.updateProduct(dto);
 		return "redirect:/shop/product/list.do";
-		
 	}
+	
 	//상품 삭제
 	@RequestMapping("delete.do")
 	public String delete(@RequestParam int product_id) {
@@ -124,7 +124,7 @@ public class ProductController {
 		String filename=productService.fileInfo(product_id);
 		System.out.println("첨부파일 이름:"+filename);
 		if(filename != null && !filename.equals("-")) {//파일이 있으면
-            String path="D:\\work\\spring02\\src\\main\\webapp\\WEB-INF\\views\\images\\";
+String path="D:\\work\\spring02\\src\\main\\webapp\\WEB-INF\\views\\images";
 			File f=new File(path+filename);
 			System.out.println("파일존재여부:"+f.exists());
 			if(f.exists()) {//파일이 존재하면
@@ -137,6 +137,5 @@ public class ProductController {
 		//화면 이동
 		return "redirect:/shop/product/list.do";
 	}
-	
 	
 }//end class

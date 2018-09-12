@@ -10,13 +10,12 @@ import com.example.spring02.model.message.dto.MessageDTO;
 @Repository //dao bean 등록
 public class MessageDAOImpl implements MessageDAO {
 	
-	@Inject 
+	@Inject //의존관계(DI, Dependency Injection)
 	SqlSession sqlSession;
 
 	@Override
 	public void create(MessageDTO dto) {
 		sqlSession.insert("message.create", dto);
-
 	}
 
 	@Override

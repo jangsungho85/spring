@@ -1,12 +1,12 @@
 package com.example.spring02.model.email;
 
 public class EmailDTO {
-	
 	private String senderName;
 	private String senderMail;
 	private String receiveMail;
 	private String subject;
 	private String message;
+	//getter,setter,toString까지만
 	public String getSenderName() {
 		return senderName;
 	}
@@ -42,7 +42,5 @@ public class EmailDTO {
 		return "EmailDTO [senderName=" + senderName + ", senderMail=" + senderMail + ", receiveMail=" + receiveMail
 				+ ", subject=" + subject + ", message=" + message + "]";
 	}
-	
-	
 
 }

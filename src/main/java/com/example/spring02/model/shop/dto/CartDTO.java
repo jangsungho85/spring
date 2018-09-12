@@ -1,16 +1,16 @@
 package com.example.spring02.model.shop.dto;
 
 public class CartDTO {
+	private int cart_id;//카트 아이디
+	private String userid;//사용자 아이디
+	private String name;//사용자 이름
+	private int product_id;//제품 아이디
+	private String product_name;//제품 이름
+	private int price;//제품 단가
+	private int money;//제품 금액
+	private int amount;//제품 수량
 	
-	private int cart_id;
-	private String userid;
-	private String name;
-	private int product_id;
-	private String product_name;
-	private int price;
-	private int money;
-	private int amount;
-	
+	//getter,setter,toString까지만 생성
 	public int getCart_id() {
 		return cart_id;
 	}
@@ -59,17 +59,11 @@ public class CartDTO {
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
-	
 	@Override
 	public String toString() {
 		return "CartDTO [cart_id=" + cart_id + ", userid=" + userid + ", name=" + name + ", product_id=" + product_id
 				+ ", product_name=" + product_name + ", price=" + price + ", money=" + money + ", amount=" + amount
 				+ "]";
 	}
-	
-	
-	
-	
-	
 
 }

@@ -23,7 +23,6 @@ public class CartDAOImpl implements CartDAO {
 	@Override
 	public void insert(CartDTO dto) {
 		sqlSession.insert("cart.insert", dto);
-
 	}
 
 	@Override
@@ -34,13 +33,11 @@ public class CartDAOImpl implements CartDAO {
 	@Override
 	public void delete(int cart_id) {
 		sqlSession.delete("cart.delete", cart_id);
-
 	}
 
 	@Override
 	public void deleteAll(String userid) {
 		sqlSession.delete("cart.deleteAll", userid);
-
 	}
 
 	@Override
@@ -69,7 +66,6 @@ public class CartDAOImpl implements CartDAO {
 	@Override
 	public void modifyCart(CartDTO dto) {
 		sqlSession.update("cart.modifyCart", dto);
-
 	}
 
 }

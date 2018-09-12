@@ -24,7 +24,6 @@ public class CartServiceImpl implements CartService {
 	public void insert(CartDTO dto) {
 		cartDao.insert(dto);
 	}
-	
 
 	@Override
 	public List<CartDTO> listCart(String userid) {
@@ -34,13 +33,11 @@ public class CartServiceImpl implements CartService {
 	@Override
 	public void delete(int cart_id) {
 		cartDao.delete(cart_id);
-
 	}
 
 	@Override
 	public void deleteAll(String userid) {
 		cartDao.deleteAll(userid);
-
 	}
 
 	@Override
@@ -69,7 +66,6 @@ public class CartServiceImpl implements CartService {
 	@Override
 	public void modifyCart(CartDTO dto) {
 		cartDao.modifyCart(dto);
-
 	}
 
 }
